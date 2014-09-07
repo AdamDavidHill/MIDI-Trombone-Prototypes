@@ -1,0 +1,168 @@
+﻿<Window x:Class="VBone.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:usercontrols="clr-namespace:VBone.UserControls"
+        xmlns:converters="clr-namespace:VBone.Converters"
+        xmlns:mididotnet="clr-namespace:MidiDotNet;assembly=MidiDotNet"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" 
+        Width="1600"
+        Height="800" 
+        WindowStartupLocation="CenterScreen"
+        Icon="Trombone.ico"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}" 
+        x:Name="This"
+        >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:InvertedBooleanToVisibilityConverter x:Key="InvBoolToVis" Collapse="true"/>
+        <converters:CurrentHarmonicVisibilityConverter x:Key="CurrentHarmonicVisibilityConverter"/>
+        <converters:CurrentPositionVisibilityConverter x:Key="CurrentPositionVisibilityConverter"/>
+        <converters:PositionConverter x:Key="PositionConverter"/>
+        <SolidColorBrush x:Key="TransparentBrush" Color="Transparent"/>
+        <SolidColorBrush x:Key="BlackBrush" Color="Black"/>
+        <SolidColorBrush x:Key="TabBrush" Color="Black"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Visibility="Collapsed">
+            <Image  Source="Trombone512.png" Width="150" Height="150" Margin="20" Opacity=".05" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <StackPanel>
+                <TextBlock Text="VBone Touch" FontFamily="Segoe UI Light" FontSize="24" Margin="5" Visibility="{Binding KinectMode, Converter={StaticResource InvBoolToVis}}"/>
+                <TextBlock Text="VBone Kinect" FontFamily="Segoe UI Light" FontSize="24" Margin="5" Visibility="{Binding KinectMode, Converter={StaticResource BoolToVis}}"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Width="200" Orientation="Vertical" Margin="0,50,0,0">
+                <StackPanel HorizontalAlignment="Center" Width="200" Orientation="Horizontal">
+                    <TextBlock Text="Kinect Mode:" Margin="10" VerticalAlignment="Center"/>
+                    <Grid Margin="10" VerticalAlignment="Center">
+                        <Ellipse Fill="#FFAA3333" Visibility="{Binding KinectMode, Converter={StaticResource InvBoolToVis}}" Width="10" Height="10" VerticalAlignment="Top" />
+                        <Ellipse Fill="#FF33AA33" Visibility="{Binding KinectMode, Converter={StaticResource BoolToVis}}" Width="10" Height="10" VerticalAlignment="Top" />
+                    </Grid>
+                </StackPanel>
+                <Button Content="On/Off" Width="100" Height="40" Click="KinectModeButtonClick"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1" Width="200">
+            <usercontrols:Slider x:Name="slider" Margin="50, 50, 0, 50" Width="200" />
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="50">
+            <Grid x:Name="gauges" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="12*"  />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="1" BorderBrush="Beige"/>
+                <usercontrols:Slider x:Name="gauge1" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Horizontal" TabThickness="3" TabBrush="{StaticResource BlackBrush}" BackgroundBrush="{StaticResource TransparentBrush}"/>
+                <usercontrols:Slider x:Name="gauge2" Grid.Column="0" Grid.RowSpan="7" TabThickness="3" TabBrush="{StaticResource BlackBrush}" BackgroundBrush="{StaticResource TransparentBrush}"/>
+            </Grid>
+            
+            <Grid x:Name="rectangles">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!-- Matrix Backgrounds -->
+
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="7" Fill="#214488FF"/>
+                <Rectangle Grid.Row="1" Grid.ColumnSpan="7" Fill="#114488FF"/>
+                <Rectangle Grid.Row="2" Grid.ColumnSpan="7" Fill="#214488FF"/>
+                <Rectangle Grid.Row="3" Grid.ColumnSpan="7" Fill="#114488FF"/>
+                <Rectangle Grid.Row="4" Grid.ColumnSpan="7" Fill="#214488FF"/>
+                <Rectangle Grid.Row="5" Grid.ColumnSpan="7" Fill="#114488FF"/>
+                <Rectangle Grid.Row="6" Grid.ColumnSpan="7" Fill="#214488FF"/>
+                <Rectangle Grid.Row="7" Grid.ColumnSpan="7" Fill="#114488FF"/>
+
+                <Rectangle Grid.Column="0" Grid.RowSpan="8" Fill="#214488FF"/>
+                <Rectangle Grid.Column="1" Grid.RowSpan="8" Fill="#114488FF"/>
+                <Rectangle Grid.Column="2" Grid.RowSpan="8" Fill="#214488FF"/>
+                <Rectangle Grid.Column="3" Grid.RowSpan="8" Fill="#114488FF"/>
+                <Rectangle Grid.Column="4" Grid.RowSpan="8" Fill="#214488FF"/>
+                <Rectangle Grid.Column="5" Grid.RowSpan="8" Fill="#114488FF"/>
+                <Rectangle Grid.Column="6" Grid.RowSpan="8" Fill="#214488FF"/>
+                <!--<Rectangle Grid.Column="7" Grid.RowSpan="8" Fill="#004488FF"/>-->
+
+
+
+                <!-- Current note highlights -->
+
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=7}"/>
+                <Rectangle Grid.Row="1" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=6}"/>
+                <Rectangle Grid.Row="2" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=5}"/>
+                <Rectangle Grid.Row="3" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=4}"/>
+                <Rectangle Grid.Row="4" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=3}"/>
+                <Rectangle Grid.Row="5" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=2}"/>
+                <Rectangle Grid.Row="6" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=1}"/>
+                <Rectangle Grid.Row="7" Grid.ColumnSpan="7" Fill="#554488FF" Visibility="{Binding CurrentHarmonic, Converter={StaticResource CurrentHarmonicVisibilityConverter}, ConverterParameter=0}"/>
+
+                <Rectangle Grid.Column="0" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=6}"/>
+                <Rectangle Grid.Column="1" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=5}"/>
+                <Rectangle Grid.Column="2" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=4}"/>
+                <Rectangle Grid.Column="3" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=3}"/>
+                <Rectangle Grid.Column="4" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=2}"/>
+                <Rectangle Grid.Column="5" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=1}"/>
+                <Rectangle Grid.Column="6" Grid.RowSpan="8" Fill="#554488FF" Visibility="{Binding CurrentPosition, Converter={StaticResource CurrentPositionVisibilityConverter}, ConverterParameter=0}"/>
+            </Grid>
+
+            <ItemsControl x:Name="matrix" ItemsSource="{Binding TromboneNotes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="7" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <usercontrols:NoteCell Position="{Binding Path=Position, Converter={StaticResource PositionConverter}}" 
+                                               Pitch="{Binding Path=Pitch}" 
+                                               NoteName="{Binding Path=NoteName}" 
+                                               Margin="0"
+                                               MouseDown="NoteCell_MouseDown"
+                                               MouseUp="NoteCell_MouseUp"
+                                               MouseMove="NoteCell_MouseMove"
+                                               />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Image Source="{Binding ImageSource, ElementName=This}" Stretch="Uniform" IsHitTestVisible="False" Opacity=".2" />
+        </Grid>
+    </Grid>
+</Window>

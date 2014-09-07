@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B7FE8090-AAB3-4F04-B0B1-FD167B730D7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MidiDotNet</RootNamespace>
+    <AssemblyName>MidiDotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MidiExamples\Example01.cs" />
+    <Compile Include="MidiExamples\Example02.cs" />
+    <Compile Include="MidiExamples\Example03.cs" />
+    <Compile Include="MidiExamples\Example05.cs" />
+    <Compile Include="MidiExamples\Example06.cs" />
+    <Compile Include="MidiExamples\ExampleBase.cs" />
+    <Compile Include="MidiExamples\ExampleUtil.cs" />
+    <Compile Include="Midi\Channel.cs" />
+    <Compile Include="Midi\Chord.cs" />
+    <Compile Include="Midi\Clock.cs" />
+    <Compile Include="Midi\Control.cs" />
+    <Compile Include="Midi\DeviceBase.cs" />
+    <Compile Include="Midi\InputDevice.cs" />
+    <Compile Include="Midi\Instrument.cs" />
+    <Compile Include="Midi\Interval.cs" />
+    <Compile Include="Midi\MessageQueue.cs" />
+    <Compile Include="Midi\Messages.cs" />
+    <Compile Include="Midi\Note.cs" />
+    <Compile Include="Midi\OutputDevice.cs" />
+    <Compile Include="Midi\Percussion.cs" />
+    <Compile Include="Midi\Pitch.cs" />
+    <Compile Include="Midi\Scale.cs" />
+    <Compile Include="Midi\ShortMsg.cs" />
+    <Compile Include="Midi\Win32API.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Midi\Midi.ndoc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Midi\docs\contents.html" />
+    <Content Include="Midi\docs\index.html" />
+    <Content Include="Midi\docs\intevent.gif" />
+    <Content Include="Midi\docs\intfield.gif" />
+    <Content Include="Midi\docs\intmethod.gif" />
+    <Content Include="Midi\docs\intoperator.gif" />
+    <Content Include="Midi\docs\intproperty.gif" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.Callback.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.CallbackType.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.CallbackMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Channel.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods.IsValid.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods.Validate.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelMessage.Channel.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChannelMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Augmented.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Bass.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Contains.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Diminished.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Equals.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.FindMatchingChords.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.GetHashCode.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Inversion.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Major.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Minor.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.NoteSequence.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.op_Equality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.op_Inequality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Pattern.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Patterns.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Root.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.Seventh.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.ToString.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.~ctor1.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord.~ctor2.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.Abbreviation.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.Ascent.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.Equals.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.GetHashCode.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.LetterOffsets.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.op_Equality.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.op_Inequality.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.ToString.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern~Operators.html" />
+    <Content Include="Midi\docs\Midi~Midi.ChordPattern~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Constructors.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Fields.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Operators.html" />
+    <Content Include="Midi\docs\Midi~Midi.Chord~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.BeatsPerMinute.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.IsRunning.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Reset.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Schedule1.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Schedule2.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Schedule~Overloads.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Start.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Stop.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.Time.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Clock~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Control.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.Control.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.Value.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlChangeMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods.IsValid.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods.Validate.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ControlExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceBase.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceBase.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceBase.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceBase~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceBase~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceException.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceException.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceException~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceMessage.Device.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.DeviceMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.Close.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.ControlChange.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.ControlChangeHandler.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.InstalledDevices.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.IsOpen.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.IsReceiving.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.NoteOff.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.NoteOffHandler.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.NoteOn.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.NoteOnHandler.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.Open.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.PitchBend.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.PitchBendHandler.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.ProgramChange.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.ProgramChangeHandler.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.RemoveAllEventHandlers.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.StartReceiving.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice.StopReceiving.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice~Events.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.InputDevice~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Instrument.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods.IsValid.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods.Validate.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.InstrumentExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Interval.html" />
+    <Content Include="Midi\docs\Midi~Midi.IntervalExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.IntervalExtensionMethods.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.IntervalExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.IntervalExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message.Time.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Message~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Accidental.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.DoubleFlat.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.DoubleSharp.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Equals.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Flat.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.GetHashCode.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.IsEharmonicWith.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Letter.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Natural.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.op_Equality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.op_Inequality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.ParseNote.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.PitchAtOrAbove.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.PitchAtOrBelow.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.PitchInOctave.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.PositionInOctave.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.SemitonesDownTo.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.SemitonesUpTo.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.Sharp.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.ToString.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.~ctor1.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.~ctor2.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note.~ctor3.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage.Pitch.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage.Velocity.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOffMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.Clock.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.Duration.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.NoteOnOffMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Constructors.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Fields.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Operators.html" />
+    <Content Include="Midi\docs\Midi~Midi.Note~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.Close.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.InstalledDevices.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.IsOpen.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.Open.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendControlChange.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendNoteOff.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendNoteOn.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendPercussion.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendPitchBend.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SendProgramChange.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice.SilenceAllNotes.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.OutputDevice~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Percussion.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods.IsValid.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods.Validate.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.Percussion.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.Velocity.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.PercussionMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Pitch.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage.Value.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchBendMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.IsInMidiRange.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.NotePreferringFlats.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.NotePreferringSharps.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.NoteWithLetter.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.Octave.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods.PositionInOctave.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.PitchExtensionMethods~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage.Instrument.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage.MakeTimeShiftedCopy.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage.SendNow.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ProgramChangeMessage~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Chromatic.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Contains.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Equals.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.GetHashCode.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.HarmonicMinor.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Major.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.MelodicMinorAscending.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.MelodicMinorDescending.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.NaturalMinor.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.NoteSequence.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.op_Equality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.op_Inequality.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Pattern.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Patterns.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.ScaleDegree.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.Tonic.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.ToString.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.Ascent.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.Equals.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.GetHashCode.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.Name.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.op_Equality.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.op_Inequality.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.ToString.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern.~ctor.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern~Operators.html" />
+    <Content Include="Midi\docs\Midi~Midi.ScalePattern~Properties.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale~Fields.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale~Members.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale~Methods.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale~Operators.html" />
+    <Content Include="Midi\docs\Midi~Midi.Scale~Properties.html" />
+    <Content Include="Midi\docs\MSDN.css" />
+    <Content Include="Midi\docs\privevent.gif" />
+    <Content Include="Midi\docs\privfield.gif" />
+    <Content Include="Midi\docs\privmethod.gif" />
+    <Content Include="Midi\docs\privoperator.gif" />
+    <Content Include="Midi\docs\privproperty.gif" />
+    <Content Include="Midi\docs\protevent.gif" />
+    <Content Include="Midi\docs\protfield.gif" />
+    <Content Include="Midi\docs\protmethod.gif" />
+    <Content Include="Midi\docs\protoperator.gif" />
+    <Content Include="Midi\docs\protproperty.gif" />
+    <Content Include="Midi\docs\pubevent.gif" />
+    <Content Include="Midi\docs\pubfield.gif" />
+    <Content Include="Midi\docs\pubmethod.gif" />
+    <Content Include="Midi\docs\puboperator.gif" />
+    <Content Include="Midi\docs\pubproperty.gif" />
+    <Content Include="Midi\docs\static.gif" />
+    <Content Include="Midi\docs\tree.css" />
+    <Content Include="Midi\docs\tree.js" />
+    <Content Include="Midi\docs\treenodedot.gif" />
+    <Content Include="Midi\docs\treenodeminus.gif" />
+    <Content Include="Midi\docs\treenodeplus.gif" />
+    <Content Include="Midi\docs\~Midi.html" />
+    <Content Include="Midi\docs\~Midi~Hierarchy.html" />
+    <Content Include="Midi\README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
