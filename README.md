@@ -2,10 +2,9 @@ MIDI-Trombone-Prototypes
 ========================
 MSc Research Project
 
-Adam Hill
+*Adam Hill*
+Open University Postgraduate Student
 
-The Open University
-========================
 
 This solution is in C# / WPF for Visual Studio 2013. The software is a hybrid of two prototypes created to allow the realtime playing of MIDI data in a trombone-like fashion. One prototype uses a touch interface, the other a Kinect for Windows 2. In order to run the program:
 
